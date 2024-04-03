@@ -1,6 +1,7 @@
 //ウィンドウを表示するプログラム（ひな形）
 
 #include "DxLib.h"	//DXライブラリのインクルード
+#include "Player/Player.h"
 
 // define
 #define	SCREEN_SIZE_X	640	// X方向の画面サイズを指定
@@ -25,7 +26,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	//-----------------------------------------
 	//一番最初に１回だけやる処理をここに書く
-
+	Player player;
 	//-----------------------------------------
 
 	//ゲームメインループ
@@ -44,7 +45,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		//ここからゲームの本体を書くことになる
 		//-----------------------------------------
 
-
+		player.PlayerDebug();
+		player.PlayerMove();
 
 		//-----------------------------------------
 		//ループの終わりに
