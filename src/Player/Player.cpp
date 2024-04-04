@@ -22,44 +22,44 @@ void Player::PlayerMove()
 
 	//1Pの処理===========================
 
-	if (CheckHitKey(KEY_INPUT_A)) //左移動
+	if (IsKeyKeep(KEY_INPUT_A)) //左移動
 	{
 		m_x[0] -= PlayerSpeed;
 	}
 
-	if (CheckHitKey(KEY_INPUT_D)) //右移動
+	if (IsKeyKeep(KEY_INPUT_D)) //右移動
 	{
 		m_x[0] += PlayerSpeed;
 	}
 
-	if (CheckHitKey(KEY_INPUT_W)) //上移動
+	if (IsKeyKeep(KEY_INPUT_W)) //上移動
 	{
 		m_y[0] -= PlayerSpeed;
 	}
 
-	if (CheckHitKey(KEY_INPUT_S)) //下移動
+	if (IsKeyKeep(KEY_INPUT_S)) //下移動
 	{
 		m_y[0] += PlayerSpeed;
 	}
 
 	//2Pの処理===========================
 
-	if (CheckHitKey(KEY_INPUT_LEFT)) //左移動
+	if (IsKeyKeep(KEY_INPUT_LEFT)) //左移動
 	{
 		m_x[1] -= PlayerSpeed;
 	}
 
-	if (CheckHitKey(KEY_INPUT_RIGHT)) //右移動
+	if (IsKeyKeep(KEY_INPUT_RIGHT)) //右移動
 	{
 		m_x[1] += PlayerSpeed;
 	}
 
-	if (CheckHitKey(KEY_INPUT_UP)) //上移動
+	if (IsKeyKeep(KEY_INPUT_UP)) //上移動
 	{
 		m_y[1] -= PlayerSpeed;
 	}
 
-	if (CheckHitKey(KEY_INPUT_DOWN)) //下移動
+	if (IsKeyKeep(KEY_INPUT_DOWN)) //下移動
 	{
 		m_y[1] += PlayerSpeed;
 	}

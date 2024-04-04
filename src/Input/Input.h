@@ -1,5 +1,12 @@
 #pragma once
 
+//入力制御初期化
+void InitInput();
+
+//入力制御ステップ
+//他のStepより早く呼ぶ
+void StepInput();
+
 //今押された
 bool IsKeyPush(int Key_code);
 
