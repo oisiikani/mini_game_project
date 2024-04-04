@@ -22,9 +22,6 @@
     <Filter Include="MyMath">
       <UniqueIdentifier>{96e479e6-ae20-4be2-b036-2925b3ee6db3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pack">
-      <UniqueIdentifier>{6bea0141-0749-4d24-9ef3-e05a2c3e7a10}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -36,14 +33,14 @@
     <ClCompile Include="..\src\Player\Player.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\noda_Pack\Pack.cpp">
-      <Filter>Pack</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\My_Math\My_Math.cpp">
       <Filter>MyMath</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Collision\Collision.cpp">
       <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\noda_Pack\Pack.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
