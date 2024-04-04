@@ -2,6 +2,7 @@
 
 #include "DxLib.h"	//DXライブラリのインクルード
 #include "Player/Player.h"
+#include "noda_Pack/Pack.h"
 
 // define
 #define	SCREEN_SIZE_X	640	// X方向の画面サイズを指定
@@ -27,6 +28,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//-----------------------------------------
 	//一番最初に１回だけやる処理をここに書く
 	Player player;
+	Pack pack;
+
+	pack.InitPack();//パック初期化
+
 	//-----------------------------------------
 
 	//ゲームメインループ
@@ -47,7 +52,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		player.PlayerDebug();
 		player.PlayerMove();
+		
+		pack.MovePosition();//パックの移動
+		pack.HitPackSquare(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y);//パックと画面の当たり判定
+		pack.UpdatePosition();//パックの座標を更新
+		pack.DrawPack();//パックの描画
 
+		//ホッケーパックの座標とベクトルを表示できる
+		/*pack.DebugMode();*/
+		
 		//-----------------------------------------
 		//ループの終わりに
 		//フリップ関数
