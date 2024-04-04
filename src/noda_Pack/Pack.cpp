@@ -88,6 +88,13 @@ void Pack::HitPackline(float Line1_x, float Line1_y, float Line2_x, float Line2_
 	}
 
 }
+void Pack::HitPackSquare(float Square_x, float Square_y, float Square_w, float Square_h)//パックと四角形の衝突
+{
+	HitPackline(Square_x, Square_y, Square_x, Square_y + Square_h);//左辺
+	HitPackline(Square_x, Square_y + Square_h, Square_x + Square_w, Square_y + Square_h);//下辺
+	HitPackline(Square_x + Square_w, Square_y + Square_h, Square_x + Square_w, Square_y);//右辺
+	HitPackline(Square_x + Square_w, Square_y, Square_x, Square_y);//上辺
+}
 void Pack::DrawPack()		//パックの描画
 {
 	DrawCircle(CurrentPosition.x, CurrentPosition.y, PackRadius, GetColor(255, 255, 0), 1, 1);

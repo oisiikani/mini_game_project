@@ -18,6 +18,7 @@ public:
 	void UpdatePosition();	//座標を更新する
 	void MovePosition();	//更新先座標を操作
 	void HitPackline(float Line1_x,float Line1_y,float Line2_x,float Line2_y);//パックと線の衝突時の軌道修正
+	void HitPackSquare(float Square_x, float Square_y, float Square_w, float Spuare_h);//パックと四角形の衝突
 	void DrawPack();		//パックの描画
 
 	void SetPackSpeed(float NewSpeed);//パックの移動スピードを設定
