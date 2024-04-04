@@ -16,6 +16,15 @@
     <Filter Include="Input">
       <UniqueIdentifier>{b7477d97-6265-4e28-8e57-d9eb8dd92ca5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{1d584857-2eb5-41f7-9719-721387b0d8f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyMath">
+      <UniqueIdentifier>{96e479e6-ae20-4be2-b036-2925b3ee6db3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pack">
+      <UniqueIdentifier>{6bea0141-0749-4d24-9ef3-e05a2c3e7a10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -27,12 +36,30 @@
     <ClCompile Include="..\src\Player\Player.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\noda_Pack\Pack.cpp">
+      <Filter>Pack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\My_Math\My_Math.cpp">
+      <Filter>MyMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Collision\Collision.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Input\Input.h">
       <Filter>Input</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Player\Player.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\My_Math\My_Math.h">
+      <Filter>MyMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Collision\Collision.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\noda_Pack\Pack.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

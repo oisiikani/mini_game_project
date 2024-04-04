@@ -139,12 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Collision\Collision.cpp" />
     <ClCompile Include="..\src\Input\Input.cpp" />
     <ClCompile Include="..\src\Main.cpp" />
+    <ClCompile Include="..\src\My_Math\My_Math.cpp" />
+    <ClCompile Include="..\src\noda_Pack\Pack.cpp" />
     <ClCompile Include="..\src\Player\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Collision\Collision.h" />
     <ClInclude Include="..\src\Input\Input.h" />
+    <ClInclude Include="..\src\My_Math\My_Math.h" />
+    <ClInclude Include="..\src\noda_Pack\Pack.h" />
     <ClInclude Include="..\src\Player\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
