@@ -1,10 +1,12 @@
+//　篠田
 #pragma once
 
 
-const int PlayerSpeed = 5;     //プレイヤーの速度
-const int PlayerSizeX = 100;   //プレイヤーの横幅
-const int PlayerSizeY = 100;   //プレイヤーの縦幅
-const int PlayerNumber = 2;    //プレイヤー数
+const int PlayerSpeed = 5;        //プレイヤーの速度
+const int PlayerSizeX = 100;      //プレイヤーの横幅
+const int PlayerSizeY = 100;      //プレイヤーの縦幅
+const int PlayerNumber = 2;       //プレイヤー数
+const int SmashGaugeMaxmum = 50;  //スマッシュゲージ最大数
 
 class Player
 {
@@ -25,5 +27,29 @@ public:
 	}
 
 	void PlayerDebug(); //デバックの処理
+
 	void PlayerMove();  //プレイヤーの移動処理
+
+	void PlayerDraw();  //プレイヤーの描画処理
+
+	float GetPlayer1PosX()
+	{
+		return m_x[0];
+	}
+
+	float GetPlayer1PosY()
+	{
+		return m_x[0];
+	}
+
+	float GetPlayer2PosX()
+	{
+		return m_x[0];
+	}
+
+	float GetPlayer2PosY()
+	{
+		return m_x[0];
+	}
+
 };

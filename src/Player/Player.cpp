@@ -5,11 +5,13 @@
 
 void Player::PlayerDebug()
 {
-	//1P‚Ìˆ—
+	//1P‚Ìˆ—===========================
+
 	DrawBox((int)m_x[0], (int)m_y[0], (int)m_x[0] + PlayerSizeX, (int)m_y[0] + PlayerSizeY,
 			GetColor(255, 0, 0), false);
 
-	//2P‚Ìˆ—
+	//2P‚Ìˆ—===========================
+
 	DrawBox((int)m_x[1], (int)m_y[1], (int)m_x[1] + PlayerSizeX, (int)m_y[1] + PlayerSizeY,
 		GetColor(0, 0, 255), false);
 
@@ -18,7 +20,7 @@ void Player::PlayerDebug()
 void Player::PlayerMove()
 {
 
-	//1P‚Ìˆ—
+	//1P‚Ìˆ—===========================
 
 	if (CheckHitKey(KEY_INPUT_A)) //¶ˆÚ“®
 	{
@@ -40,7 +42,7 @@ void Player::PlayerMove()
 		m_y[0] += PlayerSpeed;
 	}
 
-	//2P‚Ìˆ—
+	//2P‚Ìˆ—===========================
 
 	if (CheckHitKey(KEY_INPUT_LEFT)) //¶ˆÚ“®
 	{
@@ -61,4 +63,9 @@ void Player::PlayerMove()
 	{
 		m_y[1] += PlayerSpeed;
 	}
+}
+
+void Player::PlayerDraw() //ƒvƒŒƒCƒ„[‚Ì•`‰æˆ—
+{
+
 }
