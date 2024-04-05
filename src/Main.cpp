@@ -4,6 +4,9 @@
 #include "Input/Input.h"
 #include "Player/Player.h"
 #include "noda_Pack/Pack.h"
+#include "scene.h"
+
+SCENE_ID sceneID = SCENE_INIT_PLAY;
 
 // define
 #define	SCREEN_SIZE_X	1280	// X方向の画面サイズを指定
@@ -56,8 +59,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Player player;
 	Pack pack;
 
-	pack.InitPack();//パック初期化
-
 	//入力制御初期化
 	InitInput();
 
@@ -105,20 +106,83 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			//-----------------------------------------
 			//ここからゲームの本体を書くことになる
 			//-----------------------------------------
+			switch (sceneID)
+			{
+			case SCENE_INIT_TITLE:
+			{
 
-			player.PlayerDebug();
-			player.PlayerMove();
+			}
+				break;
 
-			pack.MovePosition();//パックの移動
-			pack.HitPackSquare(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y);//パックと画面の当たり判定
-			pack.HitPackSquare(player.GetPlayer1PosX(), player.GetPlayer1PosY(), (float)PlayerSizeX, (float)PlayerSizeY);//パックとプレイヤー1の当たり判定
-			pack.HitPackSquare(player.GetPlayer2PosX(), player.GetPlayer2PosY(), (float)PlayerSizeX, (float)PlayerSizeY);//パックとプレイヤー2の当たり判定
-			pack.UpdatePosition();//パックの座標を更新
-			pack.ResetPack();//パックが画面外に出るとリセットする
-			pack.DrawPack();//パックの描画
-			
-			//ホッケーパックの座標とベクトルを表示できる
-			pack.DebugMode();
+			case SCENE_LOOP_TITLE:
+			{
+
+			}
+				break;
+
+			case SCENE_FIN_TITLE:
+			{
+
+			}
+				break;
+
+			case SCENE_INIT_PLAY:
+			{
+				pack.InitPack();//パック初期化
+				player.InitPlayer(); //プレイヤー初期化処理
+
+				sceneID = SCENE_LOOP_PLAY;
+			}
+				break;
+
+			case SCENE_LOOP_PLAY:
+			{
+				player.PlayerDebug();
+
+				player.PlayerMove();
+				player.PlayerDraw();
+
+				pack.MovePosition();//パックの移動
+				pack.HitPackSquare(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y);//パックと画面の当たり判定
+				pack.HitPackSquare(player.GetPlayer1PosX(), player.GetPlayer1PosY(), (float)PlayerSizeX, (float)PlayerSizeY);//パックとプレイヤー1の当たり判定
+				pack.HitPackSquare(player.GetPlayer2PosX(), player.GetPlayer2PosY(), (float)PlayerSizeX, (float)PlayerSizeY);//パックとプレイヤー2の当たり判定
+				pack.UpdatePosition();//パックの座標を更新
+				pack.ResetPack();//パックが画面外に出るとリセットする
+				pack.DrawPack();//パックの描画
+
+				//ホッケーパックの座標とベクトルを表示できる
+				pack.DebugMode();
+			}
+				break;
+
+			case SCENE_FIN_PLAY:
+			{
+
+			}
+				break;
+
+			case SCENE_INIT_RESULT:
+			{
+
+			}
+				break;
+
+			case SCENE_LOOP_RESULT:
+			{
+
+			}
+				break;
+
+			case SCENE_FIN_RESULT:
+			{
+
+			}
+				break;
+
+			default:
+				break;
+
+			}
 
 			//-----------------------------------------
 

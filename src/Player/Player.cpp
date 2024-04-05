@@ -15,6 +15,19 @@ void Player::PlayerDebug()
 	DrawBox((int)m_x[1], (int)m_y[1], (int)m_x[1] + PlayerSizeX, (int)m_y[1] + PlayerSizeY,
 		GetColor(0, 0, 255), false);
 
+
+}
+
+void Player::InitPlayer()
+{
+	m_x[0] = 0.0f;
+	m_y[0] = 0.0f;
+
+	m_x[1] = 0.0f;
+	m_y[1] = 0.0f;
+
+	Player1Hndl = LoadGraph("Data/Player1.png");
+	Player2Hndl = LoadGraph("Data/Player2.png");
 }
 
 void Player::PlayerMove()
@@ -67,5 +80,7 @@ void Player::PlayerMove()
 
 void Player::PlayerDraw() //ƒvƒŒƒCƒ„[‚Ì•`‰æˆ—
 {
-
+	DrawGraph(m_x[0], m_y[0], Player1Hndl, true);
+	DrawGraph(m_x[1], m_y[1], Player2Hndl, true);
+	
 }

@@ -2,7 +2,7 @@
 #pragma once
 
 
-const int PlayerSpeed = 5;        //プレイヤーの速度
+const int PlayerSpeed = 8;        //プレイヤーの速度
 const int PlayerSizeX = 100;      //プレイヤーの横幅
 const int PlayerSizeY = 200;      //プレイヤーの縦幅
 const int PlayerNumber = 2;       //プレイヤー数
@@ -15,6 +15,9 @@ protected:
 	float m_x[PlayerNumber];
 	float m_y[PlayerNumber];
 
+	int Player1Hndl;
+	int Player2Hndl;
+
 public:
 
 	Player()
@@ -24,9 +27,14 @@ public:
 
 			m_x[1] = 0.0f;
 			m_y[1] = 0.0f;
+
+			Player1Hndl = 0;
+			Player2Hndl = 0;
 	}
 
 	void PlayerDebug(); //デバックの処理
+
+	void InitPlayer();  //プレイヤーの初期化処理
 
 	void PlayerMove();  //プレイヤーの移動処理
 
