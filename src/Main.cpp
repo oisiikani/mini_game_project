@@ -111,11 +111,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			pack.MovePosition();//パックの移動
 			pack.HitPackSquare(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y);//パックと画面の当たり判定
+			pack.HitPackSquare(player.GetPlayer1PosX(), player.GetPlayer1PosY(), (float)PlayerSizeX, (float)PlayerSizeY);//パックとプレイヤー1の当たり判定
+			pack.HitPackSquare(player.GetPlayer2PosX(), player.GetPlayer2PosY(), (float)PlayerSizeX, (float)PlayerSizeY);//パックとプレイヤー2の当たり判定
 			pack.UpdatePosition();//パックの座標を更新
+			pack.ResetPack();//パックが画面外に出るとリセットする
 			pack.DrawPack();//パックの描画
-
+			
 			//ホッケーパックの座標とベクトルを表示できる
-			/*pack.DebugMode();*/
+			pack.DebugMode();
 
 			//-----------------------------------------
 

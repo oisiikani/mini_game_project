@@ -4,7 +4,7 @@
 
 const int PlayerSpeed = 5;        //プレイヤーの速度
 const int PlayerSizeX = 100;      //プレイヤーの横幅
-const int PlayerSizeY = 100;      //プレイヤーの縦幅
+const int PlayerSizeY = 200;      //プレイヤーの縦幅
 const int PlayerNumber = 2;       //プレイヤー数
 const int SmashGaugeMaxmum = 50;  //スマッシュゲージ最大数
 
@@ -39,17 +39,17 @@ public:
 
 	float GetPlayer1PosY()
 	{
-		return m_x[0];
+		return m_y[0];
 	}
 
 	float GetPlayer2PosX()
 	{
-		return m_x[0];
+		return m_x[1];
 	}
 
 	float GetPlayer2PosY()
 	{
-		return m_x[0];
+		return m_y[1];
 	}
 
 };
