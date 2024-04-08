@@ -1,7 +1,9 @@
 //　篠田
+
 #include "DxLib.h"
 #include "Player.h"
 #include "../Input/Input.h"
+#include "../Common.h"
 
 void Player::PlayerDebug()
 {
@@ -15,19 +17,37 @@ void Player::PlayerDebug()
 	DrawBox((int)m_x[1], (int)m_y[1], (int)m_x[1] + PlayerSizeX, (int)m_y[1] + PlayerSizeY,
 		GetColor(0, 0, 255), false);
 
+	/*static int i = 0;
+	if (i < 1)
+	{
+		printfDx("%d",Player1Hndl);
+		i++;
+	}*/
+
 
 }
 
 void Player::InitPlayer()
 {
-	m_x[0] = 0.0f;
-	m_y[0] = 0.0f;
+	//座標の初期化
 
-	m_x[1] = 0.0f;
-	m_y[1] = 0.0f;
+	m_x[0] = 100;
+	m_y[0] = (SCREEN_SIZE_Y / 2) - PlayerHalfSizeY;
 
-	Player1Hndl = LoadGraph("Data/Player1.png");
-	Player2Hndl = LoadGraph("Data/Player2.png");
+	m_x[1] = SCREEN_SIZE_X - (PlayerSizeX + 100);
+	m_y[1] = (SCREEN_SIZE_Y / 2) - PlayerHalfSizeY;
+
+	//画像の読み込み(既に読み込んでいたら処理しない)
+
+	if (Player1Hndl == 0)
+	{
+		Player1Hndl = LoadGraph("../Data/Player1.png");
+	}
+
+	if (Player2Hndl == 0)
+	{
+		Player2Hndl = LoadGraph("../Data/Player2.png");
+	}
 }
 
 void Player::PlayerMove()
@@ -53,6 +73,17 @@ void Player::PlayerMove()
 	if (IsKeyKeep(KEY_INPUT_S)) //下移動
 	{
 		m_y[0] += PlayerSpeed;
+
+	}
+
+	if (m_x[0] > (SCREEN_SIZE_X / 2 - PlayerSizeX))
+	{
+		m_x[0] = (SCREEN_SIZE_X / 2 - PlayerSizeX);
+	}
+
+	if (m_x[0] < 0)
+	{
+		m_x[0] = 0;
 	}
 
 	//2Pの処理===========================
@@ -76,6 +107,14 @@ void Player::PlayerMove()
 	{
 		m_y[1] += PlayerSpeed;
 	}
+
+
+
+	if (m_x[1] < SCREEN_SIZE_X / 2)
+	{
+		m_x[1] = SCREEN_SIZE_X / 2;
+	}
+	
 }
 
 void Player::PlayerDraw() //プレイヤーの描画処理
@@ -83,4 +122,10 @@ void Player::PlayerDraw() //プレイヤーの描画処理
 	DrawGraph(m_x[0], m_y[0], Player1Hndl, true);
 	DrawGraph(m_x[1], m_y[1], Player2Hndl, true);
 	
+}
+
+void Player::PlayerFin()
+{
+	DeleteGraph(Player1Hndl);
+	DeleteGraph(Player2Hndl);
 }
