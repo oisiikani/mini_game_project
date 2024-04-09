@@ -123,7 +123,7 @@ int Pack::HitPackSquare(float Square_x, float Square_y, float Square_w, float Sq
 }
 void Pack::DrawPack()		//パックの描画
 {
-	DrawCircle(CurrentPosition.x, CurrentPosition.y, PackRadius, GetColor(255, 255, 0), 1, 1);
+	DrawCircle(CurrentPosition.x, CurrentPosition.y, PackRadius, GetColor(255, 128, 0), 1, 1);
 }
 
 void Pack::SetPackSpeed(float NewSpeed) {//パックの移動スピードを設定

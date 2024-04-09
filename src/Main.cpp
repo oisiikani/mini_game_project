@@ -136,6 +136,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			case SCENE_INIT_PLAY:
 			{
 				play.InitPlay();
+				Player1Score = 0;
+				Player2Score = 0;
 
 				sceneID = SCENE_LOOP_PLAY;
 			}
@@ -155,25 +157,30 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			case SCENE_FIN_PLAY:
 			{
-
+				sceneID = SCENE_INIT_RESULT;
 			}
 				break;
 
 			case SCENE_INIT_RESULT:
 			{
-
+				result.InitResult();
+				sceneID = SCENE_LOOP_RESULT;
 			}
 				break;
 
 			case SCENE_LOOP_RESULT:
 			{
-
+				result.DrawResult();
+				if (CheckHitKey(KEY_INPUT_RETURN)) {
+					sceneID = SCENE_FIN_RESULT;
+				}
 			}
 				break;
 
 			case SCENE_FIN_RESULT:
 			{
-
+				result.FinResult();
+				sceneID = SCENE_INIT_TITLE;
 			}
 				break;
 

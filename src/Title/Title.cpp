@@ -10,7 +10,7 @@ Title::~Title()
 }
 void Title::InitTitle()
 {
-	TitleHndl = LoadGraph("Data/game_air_hockey.png");
+	TitleHndl = LoadGraph("../Data/game_air_hockey.png");
 }
 void Title::StepTitle()
 {
