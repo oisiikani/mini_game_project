@@ -53,7 +53,6 @@ void Play::StepPlay()
 
 void Play::DrawPlay()
 {
-	DrawBox(30, 50, 30 + Player1HP, 100,GetColor(255,0,0),true);
 	DrawLine(SCREEN_SIZE_X / 2, 0, SCREEN_SIZE_X / 2, SCREEN_SIZE_Y, GetColor(255, 255, 255), true);
 	DrawLine(0, 150, 0, 550, GetColor(255, 128, 0), 16);	//ÉSÅ[Éãï`âÊ
 	DrawLine(SCREEN_SIZE_X, 150, SCREEN_SIZE_X, 550, GetColor(255, 128, 0), 16);

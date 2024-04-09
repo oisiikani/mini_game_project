@@ -20,6 +20,8 @@ protected:
 
 	//プレイヤーのハンドル
 
+	int StageHndl;
+
 	int Player1Hndl;
 	int Player2Hndl;
 
