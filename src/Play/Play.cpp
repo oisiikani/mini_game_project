@@ -34,10 +34,12 @@ void Play::StepPlay()
 	if (pack.HitPackline(1, 150, 1, 550)) {	//P1ゴールに入った
 		Sleep(1500);
 		pack.InitPack();//パックリセット
+		Player2Score += 1;
 	}
 	if (pack.HitPackline(SCREEN_SIZE_X - 1, 150, SCREEN_SIZE_X - 1, 550)) {	//P2ゴールに入った
 		Sleep(1500);
-		pack.InitPack();//パックリセット		
+		pack.InitPack();//パックリセット	
+		Player1Score += 1;
 	}
 	pack.HitPackSquare(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y);//パックと画面の当たり判定
 	pack.HitPackSquare(player.GetPlayer1PosX(), player.GetPlayer1PosY(), (float)PlayerSizeX, (float)PlayerSizeY);//パックとプレイヤー1の当たり判定
@@ -45,6 +47,10 @@ void Play::StepPlay()
 	pack.UpdatePosition();//パックの座標を更新
 	pack.ResetPack();//パックが画面外に出るとリセットする
 	pack.DrawPack();//パックの描画
+
+	if (Player1Score >= 5 || Player2Score >= 5) {
+		sceneID = sceneID = SCENE_FIN_PLAY;
+	}
 
 	//ホッケーパックの座標とベクトルを表示できる
 	pack.DebugMode();
@@ -56,6 +62,9 @@ void Play::DrawPlay()
 	DrawLine(SCREEN_SIZE_X / 2, 0, SCREEN_SIZE_X / 2, SCREEN_SIZE_Y, GetColor(255, 255, 255), true);
 	DrawLine(0, 150, 0, 550, GetColor(255, 128, 0), 16);	//ゴール描画
 	DrawLine(SCREEN_SIZE_X, 150, SCREEN_SIZE_X, 550, GetColor(255, 128, 0), 16);
+	DrawFormatString(490, 30, GetColor(255, 64, 64), "PLAYER-1:%d", Player1Score);//スコア描画
+	DrawFormatString(740, 30, GetColor(64, 64, 255), "%d:PLAYER-2", Player2Score);
+	DrawFormatString(628, 30, GetColor(255, 255, 255), "SCORE");
 }
 
 void Play::StageLineCollision()
