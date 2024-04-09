@@ -16,6 +16,7 @@ public:
 private:
 
 	int ResultHndl;
+	int P1score = 0,P2score = 0;
 
 };
 

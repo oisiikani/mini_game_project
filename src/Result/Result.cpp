@@ -11,6 +11,8 @@ Result::~Result()
 void Result::InitResult()
 {
 	ResultHndl = LoadGraph("../Data/party_cracker_1173.png");
+	P1score = Player1Score;
+	P2score = Player2Score;
 }
 
 void Result::StepResult()
@@ -19,11 +21,11 @@ void Result::StepResult()
 }
 void Result::DrawResult()
 {
-	if (Player1Score >= Player2Score) {
+	if (Player1Score > Player2Score) {
 		DrawBox(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y, GetColor(191, 128, 128), true);
 		DrawFormatString2F(618, 100, GetColor(255, 255, 255), GetColor(255, 0, 0), "PLAYER-1 WIN");
 	}
-	else {
+	if(Player1Score < Player2Score){
 		DrawBox(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y, GetColor(128, 128, 191), true);
 		DrawFormatString2F(618, 100, GetColor(255, 255, 255), GetColor(0, 0, 255), "PLAYER-2 WIN");
 	}

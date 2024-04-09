@@ -19,6 +19,8 @@ void Play::InitPlay()
 	Player2HP = 100;
 	HitGoal = 0;
 
+	Player1Score = 0;
+	Player2Score = 0;
 
 	pack.InitPack();//パック初期化
 	player.InitPlayer(); //プレイヤー初期化処理
@@ -49,7 +51,7 @@ void Play::StepPlay()
 	pack.DrawPack();//パックの描画
 
 	if (Player1Score >= 5 || Player2Score >= 5) {
-		sceneID = sceneID = SCENE_FIN_PLAY;
+		sceneID = SCENE_FIN_PLAY;
 	}
 
 	//ホッケーパックの座標とベクトルを表示できる
@@ -64,7 +66,7 @@ void Play::DrawPlay()
 	DrawLine(SCREEN_SIZE_X, 150, SCREEN_SIZE_X, 550, GetColor(255, 128, 0), 16);
 	DrawFormatString(490, 30, GetColor(255, 64, 64), "PLAYER-1:%d", Player1Score);//スコア描画
 	DrawFormatString(740, 30, GetColor(64, 64, 255), "%d:PLAYER-2", Player2Score);
-	DrawFormatString(628, 30, GetColor(255, 255, 255), "SCORE");
+	DrawFormatString(628, 30, GetColor(191,191,191), "SCORE");
 }
 
 void Play::StageLineCollision()
