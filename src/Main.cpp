@@ -7,8 +7,10 @@
 #include "Common.h"
 #include "scene.h"
 #include "Play/Play.h"
+#include "Title/Title.h"
+#include "Result/Result.h"
 
-SCENE_ID sceneID = SCENE_INIT_PLAY;
+SCENE_ID sceneID = SCENE_INIT_TITLE;
 
 //設定フレームレート (60FPS)
 #define FRAME_RATE (60)
@@ -55,6 +57,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//-----------------------------------------
 	//一番最初に１回だけやる処理をここに書く
 	Play play;
+	Title title;
+	Result result;
 
 	//入力制御初期化
 	InitInput();
@@ -107,18 +111,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			//-----------------------------------------
 			case SCENE_INIT_TITLE:
 			{
-
+				title.InitTitle();
+				sceneID = SCENE_LOOP_TITLE;
 			}
 				break;
 
 			case SCENE_LOOP_TITLE:
 			{
-
+				title.DrawTitle();
+				if (CheckHitKey(KEY_INPUT_RETURN)) {
+					sceneID = SCENE_FIN_TITLE;
+				}
 			}
 				break;
 
 			case SCENE_FIN_TITLE:
 			{
+				title.FinTitle();
+				sceneID = SCENE_INIT_PLAY;
 
 			}
 				break;
