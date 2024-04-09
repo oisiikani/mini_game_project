@@ -48,6 +48,12 @@ void Player::InitPlayer()
 	{
 		Player2Hndl = LoadGraph("../Data/Player2.png");
 	}
+
+	if (StageHndl == 0)
+	{
+		StageHndl = LoadGraph("../Data/st (1).png");
+	}
+
 }
 
 void Player::PlayerMove()
@@ -86,6 +92,16 @@ void Player::PlayerMove()
 		m_x[0] = 0;
 	}
 
+	if (m_y[0] < 0)
+	{
+		m_y[0] = 0;
+	}
+
+	if (m_y[0] > SCREEN_SIZE_Y - PlayerSizeY)
+	{
+		m_y[0] = SCREEN_SIZE_Y - PlayerSizeY;
+	}
+
 	//2PÇÃèàóù===========================
 
 	if (IsKeyKeep(KEY_INPUT_LEFT)) //ç∂à⁄ìÆ
@@ -114,11 +130,29 @@ void Player::PlayerMove()
 	{
 		m_x[1] = SCREEN_SIZE_X / 2;
 	}
+
+	if (m_x[1] > SCREEN_SIZE_X - PlayerSizeX)
+	{
+		m_x[1] = SCREEN_SIZE_X - PlayerSizeX;
+	}
+
+	if (m_y[1] < 0)
+	{
+		m_y[1] = 0;
+	}
+
+	if (m_y[1] > SCREEN_SIZE_Y - PlayerSizeY)
+	{
+		m_y[1] = SCREEN_SIZE_Y - PlayerSizeY;
+	}
 	
 }
 
 void Player::PlayerDraw() //ÉvÉåÉCÉÑÅ[ÇÃï`âÊèàóù
+
+
 {
+	DrawGraph(0, 0, StageHndl, true);
 	DrawGraph(m_x[0], m_y[0], Player1Hndl, true);
 	DrawGraph(m_x[1], m_y[1], Player2Hndl, true);
 	
